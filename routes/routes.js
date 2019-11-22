@@ -3,38 +3,62 @@ const router = Router();
 
 const UserModel = require('../models/user.js');
 
+let hasAccess = false;
+
 router.get('/', (req, res) => {
     res.render('index');
 });
 
 router.get('/logIn', (req, res) => {
-    res.render('logIn');
+    if (!hasAccess) {
+        res.render('logIn')}
+        else {
+            res.redirect ('profile')
+        }
 });
 
 router.get('/signUp', (req, res) => {
-    res.render('signUp');
+    if (!hasAccess) {
+    res.render('signUp')}
+    else {
+        res.redirect ('profile')
+    }
 });
 
 router.get('/profile', (req, res) => {
-    res.render('profile');
+    if (hasAccess) {
+        res.render('profile');
+    }
+    else {
+        res.redirect('/')
+    }
+
 });
 
 
-router.post('/insert', (req, res) => {
+router.post('/insert', async (req, res) => {
 
     let name = req.body.name;
     let email = req.body.email;
     let password = req.body.password;
 
-    const user = new UserModel({
-        name: name,
-        email: email,
-        password: password
-    })
+    let isauser = await UserModel.find({ email: email })
 
-    user.save();
+    if (isauser.length == 0) {
+        const user = new UserModel({
+            name: name,
+            email: email,
+            password: password
+        })
+        user.save();
+        res.render('profile', { name, email })
 
-    res.render('index')
+    } else {
+
+        let info = "This account exist already, please login"
+        res.render('logIn', { info })
+    }
+
 });
 
 router.post('/logIn', async (req, res) => {
@@ -53,7 +77,8 @@ router.post('/logIn', async (req, res) => {
     else if (password == isauser[0].password) {
         ///  targeting objects first array to get the name
         let name = `Hello ${isauser[0].name}`
-        let email = `Your email is ${isauser[0].name}`
+        let email = `Your email is ${isauser[0].email}`
+        hasAccess = true
         res.render('profile', { name, email })
     }
     else {
