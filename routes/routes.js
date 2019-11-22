@@ -39,22 +39,27 @@ router.post('/insert', (req, res) => {
 
 router.post('/logIn', async (req, res) => {
 
-    let email = req.body.email;
-    // let password = req.body.password;
+    let emailInputted = req.body.email;
+    let password = req.body.password;
 
     let info;
-    let isauser = await UserModel.find({ email: email })
-    
+    let isauser = await UserModel.find({ email: emailInputted })
+
     // turns an empty array
     if (isauser.length == 0) {
         info = "This email or password dosent exist"
         res.render('login', { info })
     }
-    else {
+    else if (password == isauser[0].password) {
         ///  targeting objects first array to get the name
         let name = `Hello ${isauser[0].name}`
-        let email2 = `Your email is ${isauser[0].name}`
-        res.render('profile', { name, email2 })
+        let email = `Your email is ${isauser[0].name}`
+        res.render('profile', { name, email })
+    }
+    else {
+        info = "This email or password dosent exist"
+        res.render('login', { info })
+
     }
 
 
