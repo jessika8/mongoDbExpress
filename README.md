@@ -2,11 +2,11 @@
 With this project I created a simple login\sign-up form that will save\bring back the information from [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
 
 ## Motivation
-I wanted to know how a login\sign-up form works. How can I connect a servet with a database? How difficult it is to change the users information?
+I wanted to know how a login\sign-up form works. How can I connect a server with a database? How difficult it is to change the users information?
 
 ## What have i achieved so far?
-* I can signup and it stores the data at the MongoDB Atlas
-* I can login and it brings the sata back from the database
+* I can signup and it store the data at the MongoDB Atlas
+* I can login and it brings the data back from the database
 
 ## How can I make the project better?
 * User could change his\hers password
