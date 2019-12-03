@@ -4,7 +4,7 @@ With this project I created a simple login\sign-up form that will save\bring bac
 ## Motivation
 I wanted to know how a login\sign-up form works. How can I connect a server with a database? How difficult it is to change the users information?
 
-## What have i achieved so far?
+## What have I achieved so far?
 * I can signup and it store the data at the MongoDB Atlas
 * I can login and it brings the data back from the database
 
