@@ -1,17 +1,16 @@
 # mongoDbExpress
-With this project I created a simple login\sign-up form that will save\bring back the information from [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
+With this project, I created a simple login\sign-up form that saves or brings back the information from [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
 
 ## Motivation
-I wanted to know how a login\sign-up form works. How can I connect a server with a database? How difficult it is to change the users information?
+I wanted to know how a login\sign-up form works. How can I connect a server with a database? How difficult is it to change the user’s information?
 
 ## What have I achieved so far?
-* I can signup and it store the data at the MongoDB Atlas
-* I can login and it brings the data back from the database
+* I can signup, and it stores the data at the MongoDB Atlas
+* I can log in, and it brings the data back from the database
 
 ## How can I make the project better?
 * User could change his\hers password
 * User could add more data about him\her
-
 
 ## Tech/framework used
 * Node.js v10.16.3
