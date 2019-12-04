@@ -46,7 +46,7 @@ npm i mongoose
 * key = mongodb+srv://username:password@cluster0-iwyl2.mongodb.net/nameofthedatabase?retryWrites=true&w=majority
 5. Change the username to your **own username**
 6. Change the password to your **admin password**
-7. In the mongoDbExpress-master folder run node server.js
+7. In the mongoDbExpress-master folder run node index.js
 8. Open your browser at http://localhost:3000/
 
 ## Contribute
